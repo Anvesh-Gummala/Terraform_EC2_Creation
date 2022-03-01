@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new1
+  namespace: default
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: japp
+  template:
+    metadata:
+      labels:
+        app: japp
+    spec:
+      containers:
+      - name: japp
+        image: nginx:latest
+        ports:
+        - containerPort: 80
